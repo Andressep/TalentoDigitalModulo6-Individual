@@ -1,0 +1,52 @@
+#mac-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+
+    background-color: transparent;
+    width: 400px;
+}
+form {
+    color: #ADBAC7;
+    background-color: #FFFFFF1A;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6); /* Sombra ligera */
+    max-width: 400px; /* Ancho máximo del formulario */
+}
+.form-box {
+    display: flex;
+    flex-direction: column;
+}
+input, select {
+    border: none;
+    border-bottom: solid 1px black;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    background-color: transparent;
+
+    appearance: none; /* Desactivar estilos de navegadores modernos */
+    outline: none; /* Eliminar el borde al hacer clic */
+    cursor: pointer; /* Cambiar el cursor al estilo de selección */
+}
+input[type="text"] {
+    color: inherit; /* Heredar el color del texto del elemento padre (el label) */
+}
+#curso {
+    color: #ADBAC7; /* Color del texto */
+}
+/* Estilos para el botón minimalista */
+.form-btn button {
+    background-color: transparent;
+    border: 1px solid #ADBAC7; /* Borde de 1 píxel con color #ADBAC7 */
+    color: #ADBAC7; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al estilo de selección */
+}
+
+.form-btn button:hover {
+    background-color: #ADBAC7; /* Cambiar el color de fondo al pasar el mouse */
+    color: #fff; /* Cambiar el color del texto al pasar el mouse */
+}

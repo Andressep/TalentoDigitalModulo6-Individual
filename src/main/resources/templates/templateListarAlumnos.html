@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/style/index.css}">
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+    <div id="mac-container">
+        <div id="mac-frame">
+            <!-- Contenido del encabezado (header) -->
+            <div id="mac-title-bar">
+                <!-- Contenido de la barra de título -->
+                <div class="mac-button" id="mac-close-button"></div>
+                <div class="mac-button" id="mac-minimize-button"></div>
+                <div class="mac-button" id="mac-maximize-button"></div>
+                <div class="page">
+                    <div id="icon">
+                        <img th:src="@{/assets/java.svg}" alt="java_logo">
+                    </div>
+                    <div>
+                        <span>MacOS.Java</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Contenido principal de la ventana -->
+            <div id="mac-content">
+                <div id="mac-header">
+                    <div id="btn1" class="btn">
+                        <a th:href="@{/api/v1/registrarAlumno}">Registrar Alumno</a>
+                    </div>
+                    <div id="btn2" class="btn">
+                        <a th:href="@{/api/v1/profesores}">Profesores</a>
+                    </div>
+                    <div id="btn3" class="btn">
+                        <span>Cursos</span>
+                    </div>
+                    <div id="btn4" class="btn">
+                        <span>Otros</span>
+                    </div>
+                </div>
+                <div id="mac-body">
+                    <table th:if="${alumnos.size() > 0}" class="mac-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Curso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="alumno : ${alumnos}">
+                                <td>
+                                    <a th:href="@{/api/v1/editarAlumno/{id}(id=${alumno.alumnoId})}">
+                                        <span th:text="${alumno.alumnoId}"></span>
+                                    </a>
+                                </td>                                <td th:text="${alumno.nombres}"></td>
+                                <td th:text="${alumno.apellidoPaterno}"></td>
+                                <td th:text="${alumno.apellidoMaterno}"></td>
+                                <td th:text="${alumno.cursoAlumno != null ? alumno.cursoAlumno.nombreCurso : 'N/A'}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

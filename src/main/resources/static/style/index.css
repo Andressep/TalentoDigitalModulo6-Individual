@@ -1,0 +1,146 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#mac-container {
+    background: linear-gradient(140deg, rgb(241 160 61), rgb(192 74 65), rgb(115, 52, 52));
+    width: 100%;
+    height: 100vh; /* Ajusta la altura según tus necesidades */
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+}
+#mac-frame {
+    background-color: rgba(0, 0, 0, 0.7); /* Color negro semi-transparente */
+    border-radius: 10px; /* Bordes semi-redondeados */
+    border: 1px solid #ADBAC7;
+    padding: 10px; /* Espaciado interno para el contenido */
+    width: 80%; /* Ancho del contenedor */
+    max-width: 900px; /* Ancho máximo del contenedor */
+    height: 80%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6); /* Sombra ligera */
+}
+
+#mac-title-bar {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-weight: bold;
+    text-align: center;
+
+}
+.mac-button {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+#mac-minimize-button {
+    background-color: #FEBC2E;
+}
+#mac-maximize-button {
+    background-color: #28C840;
+}
+#mac-close-button {
+    background-color: #FF5F57;
+}
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 0 10px;
+    color: #ADBAC7;
+    font-size: 16px;
+    font-weight: 200;
+    font-style: "open sans-serif";
+    background-color: #FFFFFF1A;
+    border-radius: 8px;
+    height: 30px;
+    width: 120px;
+}
+#mac-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    margin: 10px auto;
+    height: 90%;
+    width: 95%;
+    padding: 5px;
+    gap: 5px;
+
+    border-radius: 8px;
+}
+#mac-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    height: 70px;
+    width: 100%;
+    border-radius: 8px;
+}
+.btn {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+
+    height: 80%;
+    width: 150px;
+    border-radius: 8px;
+    margin: 0 10px;
+
+    color: #ADBAC7;
+    background-color: #FFFFFF1A;
+}
+/*.btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);  Color de fondo al pasar el mouse
+}*/
+#mac-body {
+    height: 100%;
+    background-color: #FFFFFF1A;
+    border-radius: 8px;
+}
+/* Estilos CSS para hacer que la tabla sea responsiva */
+.mac-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse; /* Colapsar los bordes de la tabla */
+}
+/* Estilos de filas alternas (striped) */
+.mac-table tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.05); /* Color de fila alterna */
+}
+
+/* Estilos al pasar el mouse (hover) */
+.mac-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo al pasar el mouse */
+}
+
+/* Estilos para celdas */
+.mac-table th, .mac-table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-bottom: 1px solid black;
+}
+
+/* Estilos para la cabecera */
+.mac-table thead th {
+    vertical-align: bottom;
+    border-bottom: 1px solid black;
+}
+/* Estilos CSS para centrar el contenido de las celdas y las cabeceras */
+.mac-table th, .mac-table td {
+    color: #ADBAC7;
+    text-align: center; /* Centrar horizontalmente */
+    vertical-align: middle; /* Centrar verticalmente */
+}
+a {
+    text-decoration: none; /* Eliminar la subraya por defecto */
+    color: inherit; /* Heredar el color del texto del elemento padre */
+    color: #ADBAC7; /* Color del texto */
+}

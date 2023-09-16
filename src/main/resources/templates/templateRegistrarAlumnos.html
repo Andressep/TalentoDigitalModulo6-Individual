@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/style/index.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/style/form.css}">
+    <title th:text="${titulo}"></title>
+  </head>
+  <body>
+    <div id="mac-container">
+      <div id="mac-frame">
+        <!-- Contenido del encabezado (header) -->
+        <div id="mac-title-bar">
+          <!-- Contenido de la barra de título -->
+          <div class="mac-button" id="mac-close-button"></div>
+          <div class="mac-button" id="mac-minimize-button"></div>
+          <div class="mac-button" id="mac-maximize-button"></div>
+          <div class="page">
+            <div id="icon">
+              <img th:src="@{/assets/java.svg}" alt="java_logo">
+            </div>
+            <div>
+              <span>MacOS.Java</span>
+            </div>
+          </div>
+        </div>
+        <!-- Contenido principal de la ventana -->
+        <div id="mac-content">
+          <div id="mac-header">
+            <div id="btn1" class="btn">
+              <a th:href="@{/api/v1/alumnos}">Alumnos</a>
+            </div>
+            <div id="btn2" class="btn">
+              <span>profesores</span>
+            </div>
+            <div id="btn3" class="btn">
+              <span>Cursos</span>
+            </div>
+            <div id="btn4" class="btn">
+              <span>Otros</span>
+            </div>
+          </div>
+          <div id="mac-body">
+            <form class="form" th:action="@{/api/v1/registrarAlumno}" th:object="${alumno}" method="post"> <!-- Reemplaza 'procesar_registro.php' con la URL de tu script de procesamiento de datos -->
+              <div class="form-box">
+
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" th:field="*{nombres}" required>
+
+                <label for="apellidoPaterno">Apellido Paterno:</label>
+                <input type="text" id="apellidoPaterno" name="apellidoPaterno" th:field="*{apellidoPaterno}" required>
+
+                <label for="apellidoMaterno">Apellido Materno:</label>
+                <input type="text" id="apellidoMaterno" name="apellidoMaterno" th:field="*{apellidoMaterno}" required>
+
+                <label for="cursoAlumno">Curso:</label>
+                <select id="cursoAlumno" name="cursoAlumno" th:field="*{cursoAlumno}" required>
+                  <option th:each="curso : ${cursos}" th:value="${curso.cursoId}" th:text="${curso.nombreCurso}"></option>
+                  <!-- Agrega más opciones de cursos según sea necesario -->
+                </select>
+                <div class="form-btn">
+                  <button th:text="titulo"></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
