@@ -29,10 +29,10 @@
     <div id="mac-content">
       <div id="mac-header">
         <div id="btn1" class="btn">
-          <a th:href="@{/api/v1/alumnos}">Alumnos</a>
+          <span>Alumnos</span>
         </div>
         <div id="btn2" class="btn">
-          <span>Profesores</span>
+          <a th:href="@{/api/v1/profesores}">Profesores</a>
         </div>
         <div id="btn3" class="btn">
           <span>Cursos</span>
@@ -60,7 +60,7 @@
               <option th:each="curso : ${cursos}" th:value="${curso.cursoId}" th:text="${curso.nombreCurso}" th:selected="${cursosSeleccionados.contains(curso.cursoId)}"></option>
             </select>
             <div class="form-btn">
-              <button th:text="${titulo}"></button>
+              <button th:text="${boton}"></button>
             </div>
           </div>
         </form>

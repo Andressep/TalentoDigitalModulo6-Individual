@@ -31,43 +31,51 @@
           <a th:href="@{/api/v1/alumnos}">Alumnos</a>
         </div>
         <div id="btn2" class="btn">
-          <a th:href="@{/api/v1/registrarProfesor}">Registrar Profesores</a>
+          <a th:href="@{/api/v1/profesores}">Profesores</a>
         </div>
         <div id="btn3" class="btn">
-          <a th:href="@{/api/v1/cursos}">Cursos</a>
+          <a th:href="@{/api/v1/registrarCurso}">Registrar Curso</a>
         </div>
         <div id="btn4" class="btn">
           <span>Otros</span>
         </div>
       </div>
       <div id="mac-body">
-        <table th:if="${profesores.size() > 0}" class="mac-table">
+        <table th:if="${cursos.size() > 0}" class="mac-table">
           <thead>
           <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Apellido Paterno</th>
-            <th>Apellido Materno</th>
-            <th>Curso</th>
+            <th>Profesores</th>
+            <th>Alumnos</th>
           </tr>
           </thead>
           <tbody>
-          <tr th:each="profesor : ${profesores}">
+          <tr th:each="curso : ${cursos}">
             <td>
-              <a th:href="@{/api/v1/editarProfesor/{id}(id=${profesor.profesorId})}">
-                <span th:text="${profesor.profesorId}"></span>
+              <a th:href="@{/api/v1/editarCurso/{id}(id=${curso.cursoId})}">
+                <span th:text="${curso.cursoId}"></span>
               </a>
             </td>
             <td>
-              <a th:href="@{/api/v1/eliminarProfesor/{id}(id=${profesor.profesorId})}" onclick="return confirm('¿Estás seguro de que deseas eliminar este profesor?');">
-                <span th:text="${profesor.nombres}"></span>
+              <a th:href="@{/api/v1/eliminarCurso/{id}(id=${curso.cursoId})}" onclick="return confirm('¿Estás seguro de que deseas eliminar este curso?');">
+                <span th:text="${curso.nombreCurso}"></span>
               </a>
             </td>
-            <td th:text="${profesor.apellidoPaterno}"></td>
-            <td th:text="${profesor.apellidoMaterno}"></td>
             <td>
               <ul>
-                <li th:each="curso : ${profesor.cursos}" th:text="${curso.curso.nombreCurso}"></li>
+                <!-- Itera sobre los profesores asociados al curso -->
+                <li th:each="profesor : ${curso.profesores}">
+                  <span th:text="${profesor.profesor.nombres}"></span>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <!-- Itera sobre los alumnos asociados al curso -->
+                <li th:each="alumno : ${curso.listaAlumnos}">
+                  <span th:text="${alumno.nombres}"></span>
+                </li>
               </ul>
             </td>
           </tr>

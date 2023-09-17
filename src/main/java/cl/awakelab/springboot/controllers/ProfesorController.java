@@ -38,6 +38,8 @@ public class ProfesorController {
         model.addAttribute("profesor", profesor);
         model.addAttribute("cursos", cursos);
         model.addAttribute("titulo", "Registrar Profesor");
+        model.addAttribute("boton", "Crear");
+
         return "templateRegistrarProfesores";
     }
     @RequestMapping(value = "/registrarProfesor", method = RequestMethod.POST)
@@ -81,6 +83,8 @@ public class ProfesorController {
         model.addAttribute("cursos", cursos);
         model.addAttribute("cursosSeleccionados", cursosSeleccionados);
         model.addAttribute("titulo", "Editar Profesor");
+        model.addAttribute("boton", "Editar");
+
 
         return "templateEditarProfesores";
     }

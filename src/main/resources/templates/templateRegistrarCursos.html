@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" th:href="@{/style/index.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/style/form.css}">
   <title th:text="${titulo}"></title>
 </head>
 <body>
@@ -28,10 +29,10 @@
     <div id="mac-content">
       <div id="mac-header">
         <div id="btn1" class="btn">
-          <a th:href="@{/api/v1/alumnos}">Alumnos</a>
+          <span>Alumnos</span>
         </div>
         <div id="btn2" class="btn">
-          <a th:href="@{/api/v1/registrarProfesor}">Registrar Profesores</a>
+          <span>Profesores</span>
         </div>
         <div id="btn3" class="btn">
           <a th:href="@{/api/v1/cursos}">Cursos</a>
@@ -41,38 +42,15 @@
         </div>
       </div>
       <div id="mac-body">
-        <table th:if="${profesores.size() > 0}" class="mac-table">
-          <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido Paterno</th>
-            <th>Apellido Materno</th>
-            <th>Curso</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr th:each="profesor : ${profesores}">
-            <td>
-              <a th:href="@{/api/v1/editarProfesor/{id}(id=${profesor.profesorId})}">
-                <span th:text="${profesor.profesorId}"></span>
-              </a>
-            </td>
-            <td>
-              <a th:href="@{/api/v1/eliminarProfesor/{id}(id=${profesor.profesorId})}" onclick="return confirm('¿Estás seguro de que deseas eliminar este profesor?');">
-                <span th:text="${profesor.nombres}"></span>
-              </a>
-            </td>
-            <td th:text="${profesor.apellidoPaterno}"></td>
-            <td th:text="${profesor.apellidoMaterno}"></td>
-            <td>
-              <ul>
-                <li th:each="curso : ${profesor.cursos}" th:text="${curso.curso.nombreCurso}"></li>
-              </ul>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+        <form class="form" th:action="@{/api/v1/registrarCurso}" th:object="${curso}" method="post"> <!-- Reemplaza 'procesar_registro.php' con la URL de tu script de procesamiento de datos -->
+          <div class="form-box">
+            <label for="nombres">Nombre:</label>
+            <input type="text" id="nombres" name="nombres" th:field="*{nombreCurso}" required autocomplete="off">
+            <div class="form-btn">
+              <button th:text="${boton}"></button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>

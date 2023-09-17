@@ -35,6 +35,7 @@ public class AlumnoController {
         model.addAttribute("alumno", alumno);
         model.addAttribute("cursos", cursos);
         model.addAttribute("titulo", "Registrar Alumno");
+        model.addAttribute("boton", "Crear");
 
         return "templateRegistrarAlumnos";
     }
@@ -57,6 +58,8 @@ public class AlumnoController {
         model.addAttribute("titulo", "Editar Alumno");
         model.addAttribute("alumno", alumno);
         model.addAttribute("cursos", listaCursos);
+        model.addAttribute("boton", "Editar");
+
 
         return "templateEditarAlumnos";
     }
