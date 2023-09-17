@@ -17,7 +17,7 @@ public class Alumno {
     private String nombres;
     private String apellidoPaterno;
     private String apellidoMaterno;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "curso_id")
     private Curso cursoAlumno;
 

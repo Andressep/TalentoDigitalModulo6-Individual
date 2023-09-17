@@ -32,7 +32,7 @@
               <a th:href="@{/api/v1/alumnos}">Alumnos</a>
             </div>
             <div id="btn2" class="btn">
-              <span>profesores</span>
+              <span>Profesores</span>
             </div>
             <div id="btn3" class="btn">
               <span>Cursos</span>
@@ -46,13 +46,13 @@
               <div class="form-box">
 
                 <label for="nombres">Nombres:</label>
-                <input type="text" id="nombres" name="nombres" th:field="*{nombres}" required>
+                <input type="text" id="nombres" name="nombres" th:field="*{nombres}" required autocomplete="off">
 
                 <label for="apellidoPaterno">Apellido Paterno:</label>
-                <input type="text" id="apellidoPaterno" name="apellidoPaterno" th:field="*{apellidoPaterno}" required>
+                <input type="text" id="apellidoPaterno" name="apellidoPaterno" th:field="*{apellidoPaterno}" required autocomplete="off">
 
                 <label for="apellidoMaterno">Apellido Materno:</label>
-                <input type="text" id="apellidoMaterno" name="apellidoMaterno" th:field="*{apellidoMaterno}" required>
+                <input type="text" id="apellidoMaterno" name="apellidoMaterno" th:field="*{apellidoMaterno}" required autocomplete="off">
 
                 <label for="cursoAlumno">Curso:</label>
                 <select id="cursoAlumno" name="cursoAlumno" th:field="*{cursoAlumno}" required>

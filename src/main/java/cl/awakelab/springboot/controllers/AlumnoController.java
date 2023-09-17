@@ -7,7 +7,6 @@ import cl.awakelab.springboot.services.impl.CursoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -65,6 +64,11 @@ public class AlumnoController {
     public String editarAlumno(@ModelAttribute("alumno") Alumno alumno) {
 
         alumnoService.crearAlumno(alumno);
+        return "redirect:/api/v1/alumnos";
+    }
+    @RequestMapping(value = "/eliminarAlumno/{id}", method = RequestMethod.GET)
+    public String eliminarAlumno(@PathVariable("id") int id) {
+        alumnoService.borrarAlumnoPorId(id);
         return "redirect:/api/v1/alumnos";
     }
 }

@@ -9,3 +9,6 @@ INSERT INTO alumnos (nombres, apellido_paterno, apellido_materno) VALUES ('Luis'
 INSERT INTO alumnos (nombres, apellido_paterno, apellido_materno) VALUES ('Diego', 'Chino', 'Fuenzalida');
 INSERT INTO alumnos (nombres, apellido_paterno, apellido_materno) VALUES ('Diego', 'Blanco', 'Mansilla');
 
+INSERT INTO profesores (nombres, apellido_paterno, apellido_materno) VALUES ('Andres', 'Sepulveda', 'Valenzuela');
+INSERT INTO profesor_curso (profesor_id, curso_id) VALUES (1, 1);
+INSERT INTO profesor_curso (profesor_id, curso_id) VALUES (1, 2);

@@ -24,6 +24,9 @@ public class Profesor {
     @OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL)
     private List<ProfesorCurso> cursos;
 
+    @Transient // Indica a JPA que este campo no debe ser persistido en la base de datos.
+    private List<Integer> cursosSeleccionados;
+
     public Profesor() {
         cursos = new ArrayList<>();
     }

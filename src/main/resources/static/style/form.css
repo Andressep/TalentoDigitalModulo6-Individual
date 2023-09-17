@@ -1,3 +1,6 @@
+* {
+    color: #ADBAC7; /* Color del texto */
+}
 #mac-body {
     display: flex;
     flex-direction: column;
@@ -8,7 +11,6 @@
     width: 400px;
 }
 form {
-    color: #ADBAC7;
     background-color: #FFFFFF1A;
     padding: 20px;
     border-radius: 5px;
@@ -32,9 +34,6 @@ input, select {
 }
 input[type="text"] {
     color: inherit; /* Heredar el color del texto del elemento padre (el label) */
-}
-#curso {
-    color: #ADBAC7; /* Color del texto */
 }
 /* Estilos para el botón minimalista */
 .form-btn button {

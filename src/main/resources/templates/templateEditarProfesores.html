@@ -32,7 +32,7 @@
           <a th:href="@{/api/v1/alumnos}">Alumnos</a>
         </div>
         <div id="btn2" class="btn">
-          <a th:href="@{/api/v1/profesores}">Profesores</a>
+          <span>Profesores</span>
         </div>
         <div id="btn3" class="btn">
           <span>Cursos</span>
@@ -42,23 +42,25 @@
         </div>
       </div>
       <div id="mac-body">
-        <form class="form" th:action="@{/api/v1/registrarProfesor}" th:object="${profesor}" method="post"> <!-- Reemplaza 'procesar_registro.php' con la URL de tu script de procesamiento de datos -->
+        <form class="form" th:action="@{/api/v1/editarProfesor/{id}(id=${profesor.profesorId})}" th:object="${profesor}" method="post">
           <div class="form-box">
+            <input type="hidden" id="alumnoId" name="alumnoId" th:field="*{profesorId}">
+
             <label for="nombres">Nombres:</label>
-            <input type="text" id="nombres" name="nombres" th:field="*{nombres}" required autocomplete="off">
+            <input type="text" id="nombres" name="nombres" th:field="*{nombres}" required>
 
             <label for="apellidoPaterno">Apellido Paterno:</label>
-            <input type="text" id="apellidoPaterno" name="apellidoPaterno" th:field="*{apellidoPaterno}" required autocomplete="off">
+            <input type="text" id="apellidoPaterno" name="apellidoPaterno" th:field="*{apellidoPaterno}" required>
 
             <label for="apellidoMaterno">Apellido Materno:</label>
-            <input type="text" id="apellidoMaterno" name="apellidoMaterno" th:field="*{apellidoMaterno}" required autocomplete="off">
+            <input type="text" id="apellidoMaterno" name="apellidoMaterno" th:field="*{apellidoMaterno}" required>
 
             <label for="cursosSeleccionados">Cursos:</label>
             <select id="cursosSeleccionados" name="cursosSeleccionados" th:field="*{cursosSeleccionados}" required>
-              <option th:each="curso : ${cursos}" th:value="${curso.cursoId}" th:text="${curso.nombreCurso}"></option>
+              <option th:each="curso : ${cursos}" th:value="${curso.cursoId}" th:text="${curso.nombreCurso}" th:selected="${cursosSeleccionados.contains(curso.cursoId)}"></option>
             </select>
             <div class="form-btn">
-              <button th:text="titulo"></button>
+              <button th:text="${titulo}"></button>
             </div>
           </div>
         </form>

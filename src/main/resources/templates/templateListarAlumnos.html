@@ -57,7 +57,12 @@
                                     <a th:href="@{/api/v1/editarAlumno/{id}(id=${alumno.alumnoId})}">
                                         <span th:text="${alumno.alumnoId}"></span>
                                     </a>
-                                </td>                                <td th:text="${alumno.nombres}"></td>
+                                </td>
+                                <td>
+                                    <a th:href="@{/api/v1/eliminarAlumno/{id}(id=${alumno.alumnoId})}" onclick="return confirm('¿Estás seguro de que deseas eliminar este alumno?');">
+                                        <span th:text="${alumno.nombres}"></span>
+                                    </a>
+                                </td>
                                 <td th:text="${alumno.apellidoPaterno}"></td>
                                 <td th:text="${alumno.apellidoMaterno}"></td>
                                 <td th:text="${alumno.cursoAlumno != null ? alumno.cursoAlumno.nombreCurso : 'N/A'}"></td>

@@ -53,11 +53,23 @@
           </thead>
           <tbody>
           <tr th:each="profesor : ${profesores}">
-            <td th:text="${profesor.profesorId}"></td>
-            <td th:text="${profesor.nombres}"></td>
+            <td>
+              <a th:href="@{/api/v1/editarProfesor/{id}(id=${profesor.profesorId})}">
+                <span th:text="${profesor.profesorId}"></span>
+              </a>
+            </td>
+            <td>
+              <a th:href="@{/api/v1/eliminarProfesor/{id}(id=${profesor.profesorId})}" onclick="return confirm('¿Estás seguro de que deseas eliminar este profesor?');">
+                <span th:text="${profesor.nombres}"></span>
+              </a>
+            </td>
             <td th:text="${profesor.apellidoPaterno}"></td>
             <td th:text="${profesor.apellidoMaterno}"></td>
-            <td th:text="${profesor.cursos}"></td>
+            <td>
+              <ul>
+                <li th:each="curso : ${profesor.cursos}" th:text="${curso.curso.nombreCurso}"></li>
+              </ul>
+            </td>
           </tr>
           </tbody>
         </table>

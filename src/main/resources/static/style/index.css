@@ -144,3 +144,6 @@ a {
     color: inherit; /* Heredar el color del texto del elemento padre */
     color: #ADBAC7; /* Color del texto */
 }
+ul, li {
+    list-style: none;
+}
