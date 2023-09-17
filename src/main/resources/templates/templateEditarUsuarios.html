@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" th:href="@{/style/index.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/style/form.css}">
+  <title th:text="${titulo}"></title>
+</head>
+<body>
+<div id="mac-container">
+  <div id="mac-frame">
+    <!-- Contenido del encabezado (header) -->
+    <div id="mac-title-bar">
+      <!-- Contenido de la barra de título -->
+      <div class="mac-button" id="mac-close-button"></div>
+      <div class="mac-button" id="mac-minimize-button"></div>
+      <div class="mac-button" id="mac-maximize-button"></div>
+      <div class="page">
+        <div id="icon">
+          <img th:src="@{/assets/java.svg}" alt="java_logo">
+        </div>
+        <div>
+          <span>MacOS.Java</span>
+        </div>
+      </div>
+    </div>
+    <!-- Contenido principal de la ventana -->
+    <div id="mac-content">
+      <div id="mac-header">
+        <div id="btn1" class="btn">
+          <span>Usuarios</span>
+        </div>
+        <div id="btn2" class="btn">
+          <span>Profesores</span>
+        </div>
+        <div id="btn3" class="btn">
+          <span>Cursos</span>
+        </div>
+        <div id="btn4" class="btn">
+          <a th:href="@{/api/v1/usuarios}">Usuarios</a>
+        </div>
+      </div>
+      <div id="mac-body">
+        <form class="form" th:action="@{/api/v1/editarUsuario/{id}(id=${usuario.usuarioId})}" th:object="${usuario}" method="post">
+          <div class="form-box">
+            <input type="hidden" id="alumnoId" name="alumnoId" th:field="*{usuarioId}">
+
+            <label for="nombreUsuario">Nombres:</label>
+            <input type="text" id="nombreUsuario" name="nombreUsuario" th:field="*{nombreUsuario}" required>
+
+            <label for="rol">Rol:</label>
+            <input type="text" id="rol" name="rol" th:field="*{rol}" required>
+
+            <div class="form-btn">
+              <button th:text="${boton}"></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

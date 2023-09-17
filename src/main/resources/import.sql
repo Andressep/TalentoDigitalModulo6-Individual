@@ -12,3 +12,6 @@ INSERT INTO alumnos (nombres, apellido_paterno, apellido_materno) VALUES ('Diego
 INSERT INTO profesores (nombres, apellido_paterno, apellido_materno) VALUES ('Andres', 'Sepulveda', 'Valenzuela');
 INSERT INTO profesor_curso (profesor_id, curso_id) VALUES (1, 1);
 INSERT INTO profesor_curso (profesor_id, curso_id) VALUES (1, 2);
+
+INSERT INTO usuarios (nombre_usuario, contrasena, rol) VALUES ('Jefe1', '123456', 'Jefesito');
+
